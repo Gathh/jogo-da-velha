@@ -1,38 +1,79 @@
-.App {
-  text-align: center;
+body {
+  background-color: #f0f8ff;
+  font-family: 'Arial', sans-serif;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
-}
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.game {
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
+  margin-top: 50px;
+}
+
+.status {
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+  transition: color 0.5s;
+}
+
+.winner {
+  font-size: 48px;
+  font-weight: bold;
+  color: rgb(255, 0, 0); /* Cor inicial */
+  animation: rainbow 1s infinite alternate;
+}
+
+@keyframes rainbow {
+  0% { color: rgb(255, 0, 0); }
+  25% { color: rgb(255, 165, 0); }
+  50% { color: rgb(255, 255, 0); }
+  75% { color: rgb(0, 128, 0); }
+  100% { color: rgb(0, 0, 255); }
+}
+
+.board {
+  display: grid;
+  grid-template-columns: repeat(3, 100px);
+  gap: 5px;
+}
+
+.square {
+  width: 100px;
+  height: 100px;
+  font-size: 36px;
+  cursor: pointer;
+  background-color: #fff;
+  border: 2px solid #007bff;
+  border-radius: 10px;
+  transition: background-color 0.3s, transform 0.2s;
+}
+
+.square:hover {
+  background-color: #e7f1ff;
+  transform: scale(1.05);
+}
+
+.square.X {
+  color: #ff5733; /* Cor para X */
+}
+
+.square.O {
+  color: #28a745; /* Cor para O */
+}
+
+.reset {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 18px;
+  background-color: #007bff;
   color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
 }
 
-.App-link {
-  color: #61dafb;
-}
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.reset:hover {
+  background-color: #0056b3;
 }
